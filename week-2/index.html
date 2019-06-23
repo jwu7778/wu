@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <nav>
+        <div class="logo"><p>logo</p></div>
+        
+            <img src="./img/menu.svg" class="hamburger" id="hamburger" onclick="hamburger()"/>
+        
+
+              <ul class="menu">
+			  <img src="./img/cross.svg" class="close" id="close" onclick="closeFunction()"/>
+                <li><a href="#">Item1</a></li>
+                <li><a href="#">Item2</a></li>
+                <li><a href="#">Item3</a></li>
+                <li><a href="#">Item4</a></li>
+              </ul>
+
+    </nav>
+
+    <div class="banner">
+        <button type="button" onclick="displayPhrase()" style="width:100%;height:100%;border:20px;background-color:#B0C4DE;font-size:30px;" >
+            <span id="demo" >Welcome Message</span>
+        </button>
+      </div>
+    <div class="container">
+      <div class="row">
+        <h1>Section Title</h1></div>
+      <div class="row">
+        <div class="box">1</div>
+        <div class="box">2</div>
+      </div>
+      <div class="row">
+        <div class="box">3</div>
+        <div class="box">4</div>
+      </div>
+      <div class="row">
+        <button type="button" onclick="divFunction()" style="border:20px;background-color:#B0C4DE;height:30px;" >
+          Call to Action
+      </button>
+      </div>
+
+      <div id="hide">
+      <div class="row">
+        <div class="box">5</div>
+        <div class="box">6</div>
+      </div>
+      <div class="row">
+        <div class="box">7</div>
+        <div class="box">8</div>
+      </div>
+      </div>    
+    </div>
+
+  </body>
+</html>
