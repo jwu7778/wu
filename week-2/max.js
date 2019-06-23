@@ -3,12 +3,12 @@ function max(...numbers){
     const arr = Array.from(numbers);
 	var ans = arr[0];
 	for (var i = 0; i < arr.length; i++){
-    if (arr[i] > ans){
-		ans = arr[i];
+    		if (arr[i] > ans){
+			ans = arr[i];
 		}
 	}
 	return (ans);
-	}
+}
 
 max(4,3,6,9,0,1)
 
