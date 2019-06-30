@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head> 
+</head>
+<body>
+    <h1>數列</h1>
+    <form>
+        <input type="text" name="number" id="number" value=""/>
+        <input type="submit" id="send" value="計算"/>
+    </form>
+
+    <script>
+        var send=document.getElementById('send');
+        var sum=document.getElementById('number');
+        send.addEventListener('click',function(e){
+            e.preventDefault();
+            console.log(sum.value);
+            var number=sum.value;
+            var xhr=new XMLHttpRequest();
+            xhr.open('get','/getData'+"?"+"number="+number,true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencode");
+            xhr.send();
+            xhr.onload=function(){
+                console.log(xhr.responseText);
+                alert('計算結果:'+xhr.responseText);
+            }
+            
+        })
+    </script>
+
+</body>
+</html>
