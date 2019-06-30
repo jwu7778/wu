@@ -14,11 +14,6 @@
                 send.addEventListener('click',function(e){
                     const newName=name.value;
                     console.log(newName);
-                    expire_days = 1; 
-                    var d = new Date();
-                    d.setTime(d.getTime() + (expire_days * 24 * 60 * 60 * 1000));
-                    var expires = "expires=" + d.toGMTString();
-                    document.cookie = "name="+newName + "; " + expires;
             var xhr=new XMLHttpRequest();
             xhr.open('get','/trackName'+"?"+"name="+newName,true);
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencode");

@@ -33,7 +33,6 @@ app.get('/sum.html',function(req,res){
 })
 
 app.get('/myName',function(req,res){
-    
     if(req.cookies.name==null){
         res.redirect('/trackName.html');
     }else{
@@ -42,8 +41,9 @@ app.get('/myName',function(req,res){
 })
 
 app.get('/trackName',function(req,res){
-    console.log(req.cookies);
-    res.redirect('/myName');
+    var name=req.query.name;
+    res.cookie("name",name, { maxAge:600000});
+    res.send('/myName');
     
 })
 
