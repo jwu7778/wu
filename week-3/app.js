@@ -46,7 +46,7 @@ app.get('/trackName',function(req,res){
     res.cookie("name",name, { maxAge:600000});
     console.log(req.cookies);
 
-    res.redirect('/myName')
+    res.redirect('/myName');
     
     
 })
