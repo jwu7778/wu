@@ -2,27 +2,9 @@
 <html>
 <head></head>
 <body>
-        <form>
+        <form action="/trackName" method="get">
                 <input type='text' name='name' id='name' /> 
                 <input type='submit' name='submit' value="送出" id='send'; />
-              </form>
-        <script>
-            
-                var send=document.getElementById('send');
-                const name=document.getElementById('name');
-                
-                send.addEventListener('click',function(e){
-                    const newName=name.value;
-                    console.log(newName);
-            var xhr=new XMLHttpRequest();
-            xhr.open('get','/trackName'+"?"+"name="+newName,true);
-            xhr.setRequestHeader("Content-type","application/x-www-form-urlencode");
-            xhr.send();
-            xhr.onload=function(){
-                console.log(xhr.responseText);
-            }
-            
-        })
-        </script>
+        </form>
 </body>
 </html>
