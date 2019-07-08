@@ -9,21 +9,3 @@ function delayedResult(n1, n2, delayTime, callback){
     window.alert(result);
     }); 
 
-
-
-function ajax(src, callback){
-        const xhr  = new XMLHttpRequest();
-        xhr.open('GET',src,true);
-        xhr.onload = function () {
-           callback(xhr.responseText);
-               
-       };
-        xhr.send();
-        }
-function render(data){
-      console.log(data);
-  }
-  ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function(response){
-  render(response);
-  }); 
-
