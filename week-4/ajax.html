@@ -24,7 +24,7 @@ function render(data){
     
 obj = JSON.parse(data);
 
-for(i=0;i<3;i++){
+for(i=0;i<obj.length;i++){
 var para = document.createElement("P"); 
 para.innerHTML = "name:"+obj[i].name+" "+"price:"+obj[i].price+" "+"description:"+obj[i].description;              
 document.getElementById("demo").appendChild(para);     
