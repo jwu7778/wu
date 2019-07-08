@@ -11,9 +11,10 @@ app.use(express.static('public'));
 app.listen(port);
 var con = mysql.createConnection({
     host:'localhost',
-    user:'user',
-    password:'1234',
-    database:'assignment'
+    user:'test',
+    password:'',
+    database:'assignment',
+    port: 3306
   });
   
   con.connect(function(err){
@@ -27,6 +28,8 @@ var con = mysql.createConnection({
 app.get('/home',function(req,res){
     res.redirect('/home.html');
 })
+
+
 app.get('/reg',function(req,res){
   
   var email=req.query.email;
@@ -35,28 +38,30 @@ app.get('/reg',function(req,res){
     email:email,
     password:password
   }
-  var t=con.query('SELECT  FROM `user` WHERE `email`==email');
-if(t==NULL){
-  con.query('INSERT INTO `user` SET ?', data);
-  res.redirect('/member.html');
-}else{
-  res.send("此信箱已註冊")
-}
   
+  con.query("SELECT * FROM user WHERE user.email = '" + email + "'", function(err, rows, fields) {
+    console.log(rows);
+      if (rows.length==0){
+      con.query('INSERT INTO `user` SET ?', data);
+      res.redirect('/member.html');
+    }else{
+      res.send("此信箱已註冊");
+    }
+  })
 })
 app.get('/login',function(req,res){
  
   var email=req.query.email;
   var password=req.query.password;
-  var data={
-    email:email,
-    password:password
-  }
-  var t=con.query('SELECT  FROM `user` WHERE `email`=email AND `password`=password' );
-if(t==NULL){
-  res.send("登入錯誤")
-}else{
-  res.redirect('/member.html');
-}
-})
+  
 
+  con.query("SELECT * FROM user WHERE user.email = '" + email+"' AND user.password = '"+password+"'", function(err, rows, fields) {
+    if (rows.length==0){
+      res.send("帳號密碼錯誤");
+    }else{
+      res.redirect('/member.html');
+    }
+  })
+ 
+
+})
