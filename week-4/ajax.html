@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ajax</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+</head>
+<body>
+    
+    <div id="demo"></div>
+<script>
+    function ajax(src, callback){
+    const xhr  = new XMLHttpRequest();
+    xhr.open('GET',src,true);
+    xhr.onload = function () {
+       callback(xhr.responseText);
+           
+   };
+    xhr.send();
+    }
+function render(data){
+    
+obj = JSON.parse(data);
+
+for(i=0;i<3;i++){
+var para = document.createElement("P"); 
+para.innerHTML = "name:"+obj[i].name+" "+"price:"+obj[i].price+" "+"description:"+obj[i].description;              
+document.getElementById("demo").appendChild(para);     
+}
+}
+
+window.onload =ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function(response){
+render(response);
+}); 
+
+
+    
+</script>
+</body>
+</html>
